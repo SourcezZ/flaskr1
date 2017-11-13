@@ -1,5 +1,6 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 {% block body %}
+<h1><a href='pictures' style="color:#1822b4;font-family:YouYuan;text-decoration:none" >进入图库</a></h1>
   {% if session.logged_in %}
     <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
       <dl>
@@ -20,6 +21,9 @@
       {{ entry.text|safe }}
   {% else %}
     <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  {% for pic in show_pic %}
+  <br><img src="{{ pic.pic }}"> 
   {% endfor %}
   {% for num in show_num %}
   <p style='font-size:0.8em;text-align:right'> total : {{num.num}} 

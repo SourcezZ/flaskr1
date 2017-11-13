@@ -1,0 +1,18 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+<title>Upload File</title>
+<h1 style="color:#1822b4">图库</h1>
+<form method="POST" enctype="multipart/form-data">
+     {{ form.hidden_tag() }}
+     {{ form.photo }}
+     {% for error in form.photo.errors %}
+         <span style="color: red;">{{ error }}</span>
+     {% endfor %}
+     {{ form.submit }}
+     <a href='/pictures'>刷新</a>
+     <a href='/'>返回</a>
+</form>
+{% for pic in photo %}
+<a href="static/photo/{{pic.or_pic}}" title="{{pic.sl_time}}"><img src="static/slphoto/{{pic.sl_pic}}" style="height:6cm;width:6cm"></a>
+{% endfor %}
+{% endblock %}
