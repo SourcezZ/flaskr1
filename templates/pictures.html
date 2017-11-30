@@ -2,7 +2,7 @@
 {% block body %}
 <title>Upload File</title>
 <h1 style="color:#1822b4">图库</h1>
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" onsubmit="return sumbit_sure()">
      {{ form.hidden_tag() }}
      {{ form.photo }}
      {% for error in form.photo.errors %}
